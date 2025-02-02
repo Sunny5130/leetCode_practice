@@ -7,7 +7,7 @@ public:
         unordered_map<int, int> nge; 
         stack<int> st;
         for (int num : nums2) {
-            while (!st.empty() && st.top() <= num) {
+            while (!st.empty() && st.top() < num) {
                 nge[st.top()] = num; 
                 st.pop();
             }
