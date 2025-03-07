@@ -11,8 +11,9 @@
  */
 class Solution {
     private:
-    TreeNode* prev = nullptr;
+    
     public:
+    TreeNode* prev = nullptr;
     void flatten(TreeNode* root) {
         if (!root) return;  
         flatten(root->right);
