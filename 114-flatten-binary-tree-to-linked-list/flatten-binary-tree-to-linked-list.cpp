@@ -10,8 +10,6 @@
  * };
  */
 class Solution {
-    private:
-    
     public:
     TreeNode* prev = nullptr;
     void flatten(TreeNode* root) {
