@@ -7,35 +7,35 @@ public:
         int count=0;
         int total=row*col;
 
-        int srow=0;
-        int scol=0;
+        int frow=0;
+        int fcol=0;
         int lrow=row-1;
         int lcol=col-1;
-        while(count<total){
-            //first row
-            for(int i=scol;count<total && i<=lcol;i++){
-                ans.push_back(matrix[srow][i]);
-                count++;
-            }
-            srow++;
-            //last column
-            for(int i=srow;count<total && i<=lrow;i++){
-                ans.push_back(matrix[i][lcol]);
-                count++;
-            }
-            lcol--;
-            //last row
-            for(int i=lcol;count<total && i>=scol;i--){
-                ans.push_back(matrix[lrow][i]);
-                count++;
-            }
-            lrow--;
-            //first column
-            for(int i=lrow;count<total && i>=srow;i--){
-                ans.push_back(matrix[i][scol]);
-                count++;
-            }
-            scol++;
+        while(count < total){
+        //first row
+        for(int i=fcol;count<total && i<=lcol;i++){
+            ans.push_back(matrix[frow][i]);
+            count++;
+        }
+        frow++;
+        //lastcolumn
+        for(int i=frow;count<total && i<=lrow;i++){
+            ans.push_back(matrix[i][lcol]);
+            count++;
+        }
+        lcol--;
+        //last row
+        for(int i=lcol;count<total && i>=fcol;i--){
+            ans.push_back(matrix[lrow][i]);
+            count++;
+        }
+        lrow--;
+        //first col
+        for(int i=lrow;count<total && i>=frow;i--){
+            ans.push_back(matrix[i][fcol]);
+            count++;
+        }
+        fcol++;
         }
         return ans;
     }
