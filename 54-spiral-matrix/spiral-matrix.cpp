@@ -1,36 +1,41 @@
 class Solution {
 public:
-    vector<int> spiralOrder(vector<vector<int>>& mat) {
-        int n = mat.size();
-        int m = mat[0].size();
-        int left = 0, right = m - 1;
-        int top = 0, bottom = n - 1;
-        vector<int> ans;
-        // right
-        while (top <= bottom && left <= right) {
-            for (int i = left; i <= right; i++) {
-                ans.push_back(mat[top][i]);
-            }
-            top++;
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int row=matrix.size();
+        int col=matrix[0].size();
+        vector<int>ans;
+        int count=0;
+        int total=row*col;
 
-            for (int i = top; i <= bottom; i++) {
-                ans.push_back(mat[i][right]);
+        int srow=0;
+        int scol=0;
+        int lrow=row-1;
+        int lcol=col-1;
+        while(count<total){
+            //first row
+            for(int i=scol;count<total && i<=lcol;i++){
+                ans.push_back(matrix[srow][i]);
+                count++;
             }
-            right--;
-
-            if (top <= bottom) {
-                for (int i = right; i >= left; i--) {
-                    ans.push_back(mat[bottom][i]);
-                }
-                bottom--;
+            srow++;
+            //last column
+            for(int i=srow;count<total && i<=lrow;i++){
+                ans.push_back(matrix[i][lcol]);
+                count++;
             }
-
-            if (left <= right) {
-                for (int i = bottom; i >= top; i--) {
-                    ans.push_back(mat[i][left]);
-                }
-                left++;
+            lcol--;
+            //last row
+            for(int i=lcol;count<total && i>=scol;i--){
+                ans.push_back(matrix[lrow][i]);
+                count++;
             }
+            lrow--;
+            //first column
+            for(int i=lrow;count<total && i>=srow;i--){
+                ans.push_back(matrix[i][scol]);
+                count++;
+            }
+            scol++;
         }
         return ans;
     }
