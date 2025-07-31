@@ -35,7 +35,7 @@ public:
             else{
                 c=i;
             }
-            if(a !=-1 & b !=-1 && c!=-1){
+            if(a !=-1 && b !=-1 && c!=-1){
                 int index =min(a,min(b,c));
                 count +=(index+1);
             }
