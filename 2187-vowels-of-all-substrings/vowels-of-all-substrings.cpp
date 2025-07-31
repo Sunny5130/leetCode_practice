@@ -5,8 +5,8 @@ public:
         long long count=0;
             for(int j=0;j<n;j++){
                 if(word[j]=='a'||word[j]=='e'||word[j]=='i'||word[j]=='o'||word[j]=='u'){
-                count += (long long)(j + 1) * (n - j);
-                }
+                count +=(long long)(j+1)*(n-j);//yei formula hai substring contibution ke liye hai
+            }
         }
         return count;
     }
