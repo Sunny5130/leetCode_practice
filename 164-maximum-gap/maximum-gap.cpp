@@ -11,7 +11,7 @@ public:
             int count = (nums[i]-nums[i-1]);
             diff=max(count,diff);
         }
-        if(flag==false && nums[0]==nums[n-1])return 0;
+        // if(flag==false && nums[0]==nums[n-1])return 0;
         return diff;
     }
 };
