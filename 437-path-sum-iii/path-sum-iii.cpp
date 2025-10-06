@@ -25,7 +25,6 @@ public:
             }
         }
         path.pop_back();//path ke next element add hone se pahle last element ko hatha dena
-
     }
     int pathSum(TreeNode* root, int k) {
         vector<int>path;
