@@ -13,6 +13,7 @@ public:
         // }
         // return mw;
 //-----------------------------optimize using two pointer approach----------------------//
+    
     int l=0;
     int r=h.size()-1;
     int mw=0;
@@ -28,3 +29,5 @@ public:
     return mw;
     }
 };
+
+
