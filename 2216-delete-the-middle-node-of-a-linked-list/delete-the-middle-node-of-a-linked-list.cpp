@@ -14,7 +14,7 @@ public:
         ListNode* s=head;
         ListNode* f=head;
         if(head==NULL ||head->next==NULL) return NULL;
-        f=head->next->next;
+        f=f->next->next;
         while(f!=NULL && f->next!=NULL){
             s=s->next;
             f=f->next->next;
