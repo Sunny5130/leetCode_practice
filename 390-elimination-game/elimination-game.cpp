@@ -37,8 +37,7 @@ public:
     int step = 1;
     bool left = true;
     while(n>1){
-        if(left || n%2 ==1)
-            head +=step;
+        if(left || n%2 ==1)head +=step;
         n /=2;
         step *=2;
         left = !left;
