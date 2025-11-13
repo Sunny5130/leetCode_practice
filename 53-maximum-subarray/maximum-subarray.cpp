@@ -1,17 +1,13 @@
+#include<bits/stdc++.h>
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
-        //kadanes's algorithm
-        int sum=0;
         int maxi=INT_MIN;
+        int count=0;
         for(int i=0;i<nums.size();i++){
-            sum+=nums[i];
-            if(sum>maxi){
-                maxi=sum;
-            }
-            if(sum<0){
-                sum=0;
-            }
+            count+=nums[i];
+            maxi=max(count,maxi);
+            if(count<0)count=0;
         }
         return maxi;
     }
