@@ -1,23 +1,18 @@
 class Solution {
 public:
-    int findMin(vector<int>& arr) {
-        // int start = 0;
-        // int last = arr.size() - 1;
-        // int ans = INT_MAX;
-        // while (start <= last) {
-        //     int mid = (start + last) / 2;
-        //     if (arr[start] <= arr[mid]) {
-        //         ans = min(ans, arr[start]);
-        //         start = mid + 1;
-        //     } else {
-        //         ans = min(ans,arr[mid]);
-        //         last = mid-1;
-        //     }
-        // }
-        // return ans;
+    int findMin(vector<int>& nums) {
+        int s=0;
+        int l=nums.size()-1;
         int mini=INT_MAX;
-        for(int i=0;i<arr.size();i++){
-            mini=min(mini,arr[i]);
+        while(s<=l){
+            int m=(s+l)/2;
+            if(nums[s]<=nums[m]){
+                mini=min(mini,nums[s]);
+                s=m+1;
+            }else{
+                mini=min(mini,nums[m]);
+                l=m-1;
+            }
         }
         return mini;
     }
