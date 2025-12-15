@@ -9,36 +9,47 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        int l1=1,l2=1;
-        ListNode* temp=headA;
-        while(temp!=NULL){
-            l1++;
-            temp=temp->next;
+        // int l1=1,l2=1;
+        // ListNode* temp=headA;
+        // while(temp!=NULL){
+        //     l1++;
+        //     temp=temp->next;
+        // }
+        // temp=headB;
+        // while(temp!=NULL){
+        //     temp=temp->next;
+        //     l2++;
+        // }
+        // ListNode* a=headA;
+        // ListNode* b=headB;
+        // int diff=abs(l1-l2);
+        // if(l1-l2>0){
+        //     while(diff){
+        //         a=a->next;
+        //         diff--;
+        //     }
+        // }else{
+        //     while(diff){
+        //         b=b->next;
+        //         diff--;
+        //     }
+        // }
+        // while(a!=NULL && b!=NULL){
+        //     if(a==b)return a;
+        //     a=a->next;
+        //     b=b->next;
+        // }
+        // return 0;
+    //-----------------------using two pointers-----------------//
+        ListNode* temp1=headA;
+        ListNode* temp2=headB;
+        while(temp1!=temp2){
+            temp1=temp1->next;
+            temp2=temp2->next;
+            if(temp1==temp2)return temp1;
+            if(temp1==NULL)temp1=headB;
+            if(temp2==NULL)temp2=headA;
         }
-        temp=headB;
-        while(temp!=NULL){
-            temp=temp->next;
-            l2++;
-        }
-        ListNode* a=headA;
-        ListNode* b=headB;
-        int diff=abs(l1-l2);
-        if(l1-l2>0){
-            while(diff){
-                a=a->next;
-                diff--;
-            }
-        }else{
-            while(diff){
-                b=b->next;
-                diff--;
-            }
-        }
-        while(a!=NULL && b!=NULL){
-            if(a==b)return a;
-            a=a->next;
-            b=b->next;
-        }
-        return 0;
+        return temp1;
     }
 };
