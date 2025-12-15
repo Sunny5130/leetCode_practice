@@ -20,6 +20,7 @@ public:
             }else if(list1->val == list2->val){
                 temp->next=list2;
                 list2=list2->next;
+                list1=list1->next;
 
             }else{
                 temp->next=list2;
