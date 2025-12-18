@@ -1,41 +1,37 @@
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        int row=matrix.size();
-        int col=matrix[0].size();
-        vector<int>ans;
+        int r=matrix.size();
+        int c=matrix[0].size();
+        int total=r*c;
+        int fr=0,fc=0,lr=r-1,lc=c-1;
         int count=0;
-        int total=row*col;
-
-        int frow=0;
-        int fcol=0;
-        int lrow=row-1;
-        int lcol=col-1;
-        while(count < total){
-        //first row
-        for(int i=fcol;count<total && i<=lcol;i++){
-            ans.push_back(matrix[frow][i]);
-            count++;
-        }
-        frow++;
-        //lastcolumn
-        for(int i=frow;count<total && i<=lrow;i++){
-            ans.push_back(matrix[i][lcol]);
-            count++;
-        }
-        lcol--;
-        //last row
-        for(int i=lcol;count<total && i>=fcol;i--){
-            ans.push_back(matrix[lrow][i]);
-            count++;
-        }
-        lrow--;
-        //first col
-        for(int i=lrow;count<total && i>=frow;i--){
-            ans.push_back(matrix[i][fcol]);
-            count++;
-        }
-        fcol++;
+        vector<int>ans;
+        while(count<total){
+            //first row
+            for(int i=fc; count<total && i<=lc;i++){
+                ans.push_back(matrix[fr][i]);
+                count++;
+            }
+            fr++;
+            //last column
+            for(int i=fr;count<total && i<=lr;i++){
+                ans.push_back(matrix[i][lc]);
+                count++;
+            }
+            lc--;
+            //last row
+            for(int i=lc;count<total && i>=fc;i--){
+                ans.push_back(matrix[lr][i]);
+                count++;
+            }
+            lr--;
+            //first column
+            for(int i=lr;count<total && i>=fr;i--){
+                ans.push_back(matrix[i][fc]);
+                count++;
+            }
+            fc++;
         }
         return ans;
     }
