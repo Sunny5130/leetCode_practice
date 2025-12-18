@@ -1,7 +1,8 @@
+#include<bits/stdc++.h>
 class Solution {
 public:
     int maxArea(vector<int>&h){
-//------------------------====brute froce--
+//------------------------====brute froce===-------------------------//
         // int mw=0;   
         // for(int i=0;i<h.size();i++){
         //     for(int j=i+1;j<h.size();j++){
@@ -13,16 +14,18 @@ public:
         // }
         // return mw;
 //-----------------------------optimize using two pointer approach----------------------//
-    
     int l=0,r=h.size()-1;
-    int maxa=0;
+    int maxi=0;
     while(l<r){
         int area=(min(h[l],h[r])*(r-l));
-        maxa=max(area,maxa);
-        if(h[l]>h[r])r--;
-        else l++;
+        maxi=max(area,maxi);
+        if(h[l]<h[r]){
+            l++;
+        }else{
+            r--;
+        }
     }
-    return maxa;
+    return maxi;
     }
 };
 
