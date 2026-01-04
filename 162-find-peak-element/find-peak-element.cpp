@@ -1,12 +1,10 @@
 class Solution {
 public:
     int findPeakElement(vector<int>& arr) {
-        for (int i = 0; i < arr.size(); i++) {
-            if ((i == 0 || arr[i - 1] < arr[i]) &&
-                (i == arr.size() - 1 || arr[i] > arr[i + 1])) {
-                return i;
-            }
+        if(arr.size()==1)return 0;
+        for(int i=1;i<arr.size();i++){
+            if(arr[i]<arr[i-1])return i-1;
         }
-        return 0;
+        return arr.size()-1;
     }
 };
