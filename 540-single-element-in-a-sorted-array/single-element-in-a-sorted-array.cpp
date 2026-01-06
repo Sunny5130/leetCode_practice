@@ -23,8 +23,11 @@ public:
     //-------------------Third approach(using extra space)-----------------------//    
         unordered_map<int,int>map;
         for(int i=0;i<nums.size();i++)map[nums[i]]++;
-        for(auto it=map.begin();it!=map.end();it++){
-            if(it->second==1)return it->first;
+        // for(auto it=map.begin();it!=map.end();it++){
+        //     if(it->second==1)return it->first;
+        // }
+        for(int i=0;i<nums.size();i++){
+            if(map[nums[i]]==1)return nums[i];
         }
         return 0;
     }
