@@ -6,13 +6,14 @@ public:
 //             if(arr[i]<arr[i-1])return i-1;
 //         }
 //         return arr.size()-1;
-
-        int low=0,high=nums.size()-1;
-        while(low<high){
-            int mid = (high+low)/2;
-            if(nums[mid]>=nums[mid+1])high =mid;
-            else low = mid + 1;
+    int l=0,r=nums.size()-1;
+    while(l<r){
+        int mid=(l+r)/2;
+        if(nums[mid]<nums[mid+1]){
+            l=mid+1;
+        }else{
+            r=mid;
         }
-        return low;
+    }return l;
     }
 };
