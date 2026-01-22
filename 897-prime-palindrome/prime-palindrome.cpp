@@ -1,66 +1,30 @@
-// class Solution {
-// public:
-//     bool rev(int n){
-//         int ans=n;
-//         int res=0;
-//         while(n!=0){
-//             res=res*10+n%10;
-//             n=n/10;
-//         }
-//         return ans==res;
-//     }
-//     bool pali(int &n){
-//         if(n<2)return false;
-//         if(n%2==0)return false;
-//         bool flag=true;
-//         for(int i=3;i*i<=n;i+=2){
-//             if(n%i==0){
-//                 flag=false;
-//                 break;
-//             }
-//         }
-//         if(flag==true){
-//             if(rev(n)==true)return true;
-//             else return false;
-//         }
-//         return false;
-//     }
-//     int primePalindrome(int n) {
-//         if(n==1)return 2;
-//         if(n==2)return 2;
-//         while(n){
-//             if(pali(n)){
-//                 return n;
-//             }
-//             n++;
-//         }
-//         return false;
-//     }
-// };
 class Solution {
 public:
     bool rev(int n){
-        int ans = n;
-        int res = 0;
-        while(n != 0){
-            res = res * 10 + n % 10;
-            n = n / 10;
+        int ans=n;
+        int res=0;
+        while(n!=0){
+            res=res*10+n%10;
+            n=n/10;
         }
-        return ans == res;
+        return ans==res;
     }
-
     bool pali(int &n){
-        if(n < 2) return false;
-        if(n % 2 == 0) return n == 2;
-
-        for(int i = 3; i * i <= n; i += 2){
-            if(n % i == 0){
-                return false;
+        if(n<2)return false;
+        if(n%2==0)return false;
+        bool flag=true;
+        for(int i=3;i*i<=n;i+=2){
+            if(n%i==0){
+                flag=false;
+                break;
             }
         }
-        return rev(n);
+        if(flag==true){
+            if(rev(n)==true)return true;
+            else return false;
+        }
+        return false;
     }
-
     int primePalindrome(int n) {
         if (n <= 11) {
             if (n <=2) return 2;
